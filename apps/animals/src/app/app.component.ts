@@ -8,11 +8,6 @@ import { MenuItem, PrimeNGConfig } from 'primeng/api';
 })
 export class AppComponent implements OnInit {
   title = 'animals';
-  menuItems: MenuItem[] = [
-    {
-      label: 'Item 1',
-    },
-  ];
 
   constructor(private primengConfig: PrimeNGConfig) {}
 

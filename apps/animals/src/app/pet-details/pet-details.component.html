@@ -1,0 +1,29 @@
+<div class="container">
+  <h1>Pet's Name</h1>
+  <h2>Pet's Breed</h2>
+  <h3>Pet's owerner'is name</h3>
+  <h4>Pet's owerner'is phone</h4>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
+    accusantium unde delectus voluptatibus, quae est mollitia qui nisi
+    accusamus. Cupiditate dolores magnam autem inventore vitae quaerat beatae
+    facere, ad aliquam.
+  </p>
+  <div class="w-full">
+    <p-galleria
+      [value]="images"
+      [responsiveOptions]="responsiveOptions"
+      [containerStyle]="{ 'max-width': '640px' }"
+      [numVisible]="5"
+    >
+      <ng-template pTemplate="item" let-item>
+        <img [src]="item.previewImageSrc" style="width: 100%" />
+      </ng-template>
+      <ng-template pTemplate="thumbnail" let-item>
+        <div class="grid grid-nogutter justify-content-center">
+          <img [src]="item.thumbnailImageSrc" />
+        </div>
+      </ng-template>
+    </p-galleria>
+  </div>
+</div>

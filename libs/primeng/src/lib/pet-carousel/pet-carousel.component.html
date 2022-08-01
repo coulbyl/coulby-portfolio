@@ -1,0 +1,34 @@
+<p-carousel
+  [value]="products"
+  orientation="vertical"
+  [style]="{ 'max-width': '12rem' }"
+  verticalViewPortHeight="352px"
+  [numVisible]="1"
+  [numScroll]="1"
+>
+  <ng-template let-product pTemplate="item">
+    <div class="product-item">
+      <div class="product-item-content">
+        <div class="mb-3">
+          <img
+            src="{{ product.image }}"
+            [alt]="product.name"
+            class="product-image"
+          />
+        </div>
+        <div>
+          <h4 class="mb-1">{{ product.name }}</h4>
+          <h6 class="mb-1">{{ product.breed }}</h6>
+          <div class="car-buttons mt-3">
+            <button
+              type="button"
+              pButton
+              class="text-sm font-light"
+              label="Meet"
+            ></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</p-carousel>

@@ -1,0 +1,14 @@
+<div id="layout">
+  <nav class="bg-primary z-0">
+    <div class="container-center">
+      <coulbyl-nav-bar [items]="menuItems"></coulbyl-nav-bar>
+      <coulbyl-rescue-a-pet></coulbyl-rescue-a-pet>
+    </div>
+  </nav>
+  <main>
+    <ng-content></ng-content>
+  </main>
+  <footer id="m-0-auto">
+    <p-button label="View all pets" styleClass="p-button-link"></p-button>
+  </footer>
+</div>

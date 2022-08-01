@@ -1,1 +1,11 @@
-<p-menubar [model]="items" styleClass="menu-sm"></p-menubar>
+<p-menubar [model]="items" class="text-white">
+  <ng-template pTemplate="start">
+    <img src="assets/images/pet.webp" height="40" class="bg-white mr-2" />
+  </ng-template>
+  <ng-template pTemplate="end">
+    <span class="p-input-icon-left">
+      <i class="pi pi-search"></i>
+      <input type="text" pInputText placeholder="Search" class="h-2rem" />
+    </span>
+  </ng-template>
+</p-menubar>
