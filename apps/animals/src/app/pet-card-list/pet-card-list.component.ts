@@ -1,27 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MiniPet, FAKE_MINI_PETS } from '@coulbyl/statics-data';
 
 @Component({
   selector: 'coulbyl-pet-card-list',
   templateUrl: './pet-card-list.component.html',
   styleUrls: ['./pet-card-list.component.scss'],
 })
-export class PetCardListComponent {
-  pets: { image: string; desc: string }[] = [
-    {
-      image: 'https://images.dog.ceo/breeds/keeshond/n02112350_8572.jpg',
-      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-    },
-    {
-      image: 'https://images.dog.ceo/breeds/pointer-germanlonghair/hans2.jpg',
-      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-    },
-    {
-      image: 'https://images.dog.ceo/breeds/hound-ibizan/n02091244_486.jpg',
-      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-    },
-    {
-      image: 'https://images.dog.ceo/breeds/pekinese/n02086079_22412.jpg',
-      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-    },
-  ];
+export class PetCardListComponent implements OnInit {
+  pets: MiniPet[];
+
+  ngOnInit(): void {
+    this.pets = FAKE_MINI_PETS;
+  }
 }

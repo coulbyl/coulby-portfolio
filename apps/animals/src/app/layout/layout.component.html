@@ -2,13 +2,21 @@
   <nav class="bg-primary z-0">
     <div class="container-center">
       <coulbyl-nav-bar [items]="menuItems"></coulbyl-nav-bar>
-      <coulbyl-rescue-a-pet></coulbyl-rescue-a-pet>
+      <coulbyl-meet-a-pet></coulbyl-meet-a-pet>
     </div>
   </nav>
   <main>
     <ng-content></ng-content>
   </main>
-  <footer id="m-0-auto">
+  <div id="all-pets">
     <p-button label="View all pets" styleClass="p-button-link"></p-button>
+  </div>
+  <footer class="bg-primary p-4">
+    <coulbyl-footer-content></coulbyl-footer-content>
   </footer>
+  <p-scrollTop
+    styleClass="custom-scrolltop"
+    [threshold]="100"
+    icon="pi pi-arrow-up"
+  ></p-scrollTop>
 </div>

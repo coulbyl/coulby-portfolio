@@ -6,9 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pet-register.component.scss'],
 })
 export class PetRegisterComponent {
+  textLen = 0;
+
   uploadedFiles: File[] = [];
 
   loading = [false, false, false, false];
+
+  setLen(event: Event) {
+    this.textLen = (
+      event as Event & { target: { value: string } }
+    ).target.value.length;
+  }
 
   load(index: number) {
     this.loading[index] = true;

@@ -1,29 +1,31 @@
-<div class="container">
-  <h1>Pet's Name</h1>
-  <h2>Pet's Breed</h2>
-  <h3>Pet's owerner'is name</h3>
-  <h4>Pet's owerner'is phone</h4>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
-    accusantium unde delectus voluptatibus, quae est mollitia qui nisi
-    accusamus. Cupiditate dolores magnam autem inventore vitae quaerat beatae
-    facere, ad aliquam.
-  </p>
+<div class="container p-4">
+  <div class="mb-3">
+    <span class="font-light opacity-70">Name : </span>
+    <span class="font-bold">OUKA. AKA SHIN</span>
+  </div>
+  <div class="mb-3">
+    <span class="font-light opacity-70">Breed : </span>
+    <span class="font-bold">Akuta</span>
+  </div>
+  <div class="mb-3">
+    <div class="font-light opacity-70">Owner :</div>
+    <div class="pl-2 pt-1">
+      <span class="font-light opacity-70">Name : </span>
+      <span class="font-bold">Miss. Aka Push</span>
+      <span class="font-light opacity-70 ml-4">Phone : </span>
+      <span class="font-bold">04 00 38554844</span>
+    </div>
+  </div>
+  <div class="mb-3">
+    <div class="font-light opacity-70">Description :</div>
+    <p class="pl-2 pt-1 font-italic">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
+      accusantium unde delectus voluptatibus, quae est mollitia qui nisi
+      accusamus. Cupiditate dolores magnam autem inventore vitae quaerat beatae
+      facere, ad aliquam.
+    </p>
+  </div>
   <div class="w-full">
-    <p-galleria
-      [value]="images"
-      [responsiveOptions]="responsiveOptions"
-      [containerStyle]="{ 'max-width': '640px' }"
-      [numVisible]="5"
-    >
-      <ng-template pTemplate="item" let-item>
-        <img [src]="item.previewImageSrc" style="width: 100%" />
-      </ng-template>
-      <ng-template pTemplate="thumbnail" let-item>
-        <div class="grid grid-nogutter justify-content-center">
-          <img [src]="item.thumbnailImageSrc" />
-        </div>
-      </ng-template>
-    </p-galleria>
+    <coulbyl-galeria [images]="images"></coulbyl-galeria>
   </div>
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import { ANIMAL_MENU_ITEMS } from '@coulbyl/statics-data';
 
 @Component({
   selector: 'coulbyl-layout',
@@ -7,29 +8,9 @@ import { MenuItem } from 'primeng/api';
   styleUrls: ['./layout.component.scss'],
 })
 export class LayoutComponent implements OnInit {
-  menuItems: MenuItem[] = [
-    {
-      label: 'Home',
-      icon: 'pi pi-fw pi-home',
-      routerLink: ['/home'],
-    },
-    {
-      label: 'Meet a pet',
-      icon: 'pi pi-fw pi-ticket',
-      routerLink: ['/home'],
-      fragment: 'pets-carousel',
-    },
-    {
-      label: 'Register a pet',
-      icon: 'pi pi-fw pi-cloud-upload',
-      routerLink: ['/register-a-pet'],
-    },
-  ];
-  constructor() {
-    console.log('first');
-  }
+  menuItems: MenuItem[];
 
   ngOnInit(): void {
-    console.log('first');
+    this.menuItems = ANIMAL_MENU_ITEMS;
   }
 }

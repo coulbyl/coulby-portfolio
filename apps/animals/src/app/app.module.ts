@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterModule } from '@angular/router';
 import { PrimengModule } from '@coulbyl/primeng';
 
 import { AppComponent } from './app.component';
+MeetAPetComponent;
 import { PetCardListComponent } from './pet-card-list/pet-card-list.component';
-import { RescueAPetComponent } from './rescue-a-pet/rescue-a-pet.component';
+import { MeetAPetComponent } from './meet-a-pet/meet-a-pet.component';
 import { HomeComponent } from './home/home.component';
 import { LayoutComponent } from './layout/layout.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -18,7 +18,7 @@ import { PetDetailsComponent } from './pet-details/pet-details.component';
   declarations: [
     AppComponent,
     PetCardListComponent,
-    RescueAPetComponent,
+    MeetAPetComponent,
     HomeComponent,
     LayoutComponent,
     PetRegisterComponent,

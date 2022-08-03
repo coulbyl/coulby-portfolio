@@ -23,16 +23,24 @@
       <input id="breed" type="text" pInputText class="w-full" />
       <label for="breed">Pet's Breed</label>
     </span>
-    <span class="p-float-label">
-      <textarea
-        id="desc"
-        rows="5"
-        cols="30"
-        pInputTextarea
-        class="w-full mb-3"
-      ></textarea>
-      <label for="desc">Pet's Description</label>
-    </span>
+    <div class="grid">
+      <div class="col-11">
+        <span class="p-float-label">
+          <textarea
+            id="desc"
+            rows="5"
+            cols="30"
+            pInputTextarea
+            class="w-full mb-3"
+            (input)="setLen($event)"
+          ></textarea>
+          <label for="desc">Pet's Description</label>
+        </span>
+      </div>
+      <div class="col-1">
+        <p-chip [label]="textLen.toString()" icon="pi pi-volume-up"></p-chip>
+      </div>
+    </div>
     <div>
       <h5>Pet's Images</h5>
       <p-fileUpload

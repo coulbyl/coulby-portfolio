@@ -12,6 +12,13 @@ import { ToastModule } from 'primeng/toast';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { GalleriaModule } from 'primeng/galleria';
+import { ScrollTopModule } from 'primeng/scrolltop';
+import { FooterContentComponent } from './footer-content/footer-content.component';
+import { GaleriaComponent } from './galeria/galeria.component';
+import { ChipModule } from 'primeng/chip';
+import { KnobModule } from 'primeng/knob';
+import { FormsModule } from '@angular/forms';
+import { ProgressBarModule } from 'primeng/progressbar';
 
 const modules = [
   RippleModule,
@@ -24,16 +31,23 @@ const modules = [
   InputTextareaModule,
   InputNumberModule,
   GalleriaModule,
+  ScrollTopModule,
+  ChipModule,
+  KnobModule,
+  FormsModule,
+  ProgressBarModule,
+];
+
+const components = [
+  NavBarComponent,
+  PetCarouselComponent,
+  PetCardComponent,
+  FooterContentComponent,
 ];
 
 @NgModule({
-  declarations: [NavBarComponent, PetCarouselComponent, PetCardComponent],
+  declarations: [...components, GaleriaComponent],
   imports: [...modules],
-  exports: [
-    ...modules,
-    NavBarComponent,
-    PetCarouselComponent,
-    PetCardComponent,
-  ],
+  exports: [...modules, ...components, GaleriaComponent],
 })
 export class PrimengModule {}
