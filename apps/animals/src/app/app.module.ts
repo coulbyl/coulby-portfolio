@@ -13,6 +13,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { PetRegisterComponent } from './pet-register/pet-register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PetDetailsComponent } from './pet-details/pet-details.component';
+import { ViewAllPetsComponent } from './view-all-pets/view-all-pets.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,12 +25,14 @@ import { PetDetailsComponent } from './pet-details/pet-details.component';
     LayoutComponent,
     PetRegisterComponent,
     PetDetailsComponent,
+    ViewAllPetsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    ReactiveFormsModule,
     PrimengModule,
   ],
   providers: [],

@@ -20,6 +20,8 @@ import { KnobModule } from 'primeng/knob';
 import { FormsModule } from '@angular/forms';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { DataViewModule } from 'primeng/dataview';
+import { RatingModule } from 'primeng/rating';
+import { DropdownModule } from 'primeng/dropdown';
 
 const modules = [
   RippleModule,
@@ -38,6 +40,8 @@ const modules = [
   FormsModule,
   ProgressBarModule,
   DataViewModule,
+  RatingModule,
+  DropdownModule,
 ];
 
 const components = [
@@ -45,11 +49,12 @@ const components = [
   PetCarouselComponent,
   PetCardComponent,
   FooterContentComponent,
+  GaleriaComponent,
 ];
 
 @NgModule({
-  declarations: [...components, GaleriaComponent],
+  declarations: [...components],
   imports: [...modules],
-  exports: [...modules, ...components, GaleriaComponent],
+  exports: [...modules, ...components],
 })
 export class PrimengModule {}
