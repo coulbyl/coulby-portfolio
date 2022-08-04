@@ -19,6 +19,7 @@ import { ChipModule } from 'primeng/chip';
 import { KnobModule } from 'primeng/knob';
 import { FormsModule } from '@angular/forms';
 import { ProgressBarModule } from 'primeng/progressbar';
+import { DataViewModule } from 'primeng/dataview';
 
 const modules = [
   RippleModule,
@@ -36,6 +37,7 @@ const modules = [
   KnobModule,
   FormsModule,
   ProgressBarModule,
+  DataViewModule,
 ];
 
 const components = [
