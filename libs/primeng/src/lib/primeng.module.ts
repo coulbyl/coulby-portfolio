@@ -22,6 +22,7 @@ import { ProgressBarModule } from 'primeng/progressbar';
 import { DataViewModule } from 'primeng/dataview';
 import { RatingModule } from 'primeng/rating';
 import { DropdownModule } from 'primeng/dropdown';
+import { AutoCompleteModule } from 'primeng/autocomplete';
 
 const modules = [
   RippleModule,
@@ -42,6 +43,7 @@ const modules = [
   DataViewModule,
   RatingModule,
   DropdownModule,
+  AutoCompleteModule,
 ];
 
 const components = [

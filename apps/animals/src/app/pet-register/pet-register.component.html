@@ -16,6 +16,15 @@
       <label for="owner_phone">Your phone</label>
     </span>
     <span class="p-float-label mb-3">
+      <p-dropdown
+        [options]="categories"
+        placeholder="Select a Category"
+        optionLabel="name"
+        styleClass="w-full"
+      ></p-dropdown>
+      <label for="category">Pet's Category</label>
+    </span>
+    <span class="p-float-label mb-3">
       <input id="name" type="text" pInputText class="w-full" />
       <label for="name">Pet's Name</label>
     </span>
@@ -51,6 +60,8 @@
         [multiple]="true"
         accept="image/*"
         [maxFileSize]="1000000"
+        [showUploadButton]="false"
+        [showCancelButton]="false"
       >
         <ng-template pTemplate="content">
           <ul *ngIf="uploadedFiles.length">

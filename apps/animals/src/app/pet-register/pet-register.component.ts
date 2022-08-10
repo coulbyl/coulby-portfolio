@@ -12,6 +12,12 @@ export class PetRegisterComponent {
 
   loading = [false, false, false, false];
 
+  categories: { name: string }[] = [
+    { name: 'Cat' },
+    { name: 'Dog' },
+    { name: 'Rabbit' },
+  ];
+
   setLen(event: Event) {
     this.textLen = (
       event as Event & { target: { value: string } }
