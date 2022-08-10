@@ -17,6 +17,7 @@
     "baseUrl": ".",
     "paths": {
       "@coulbyl/primeng": ["libs/primeng/src/index.ts"],
+      "@coulbyl/prisma": ["libs/prisma/src/index.ts"],
       "@coulbyl/statics-data": ["libs/statics-data/src/index.ts"]
     }
   },
