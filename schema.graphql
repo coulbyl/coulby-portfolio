@@ -1,0 +1,141 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Breed {
+  category: Category!
+  categoryId: String!
+  createdAt: String!
+  id: String!
+  name: String!
+  pets: [Pet!]!
+  updatedAt: String!
+}
+
+type Category {
+  breeds: [Breed!]!
+  createdAt: String!
+  id: String!
+  name: String!
+  pets: [Pet!]!
+  updatedAt: String!
+}
+
+input CreateBreedInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input CreateCategoryInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input CreatePetInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input CreateUserInput {
+  city: String!
+  email: String!
+  fullName: String!
+  password: String!
+  phone: String!
+  username: String!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+type LoginResult {
+  accessToken: String!
+}
+
+type Mutation {
+  createBreed(createBreedInput: CreateBreedInput!): Breed!
+  createCategory(createCategoryInput: CreateCategoryInput!): Category!
+  createPet(createPetInput: CreatePetInput!): Pet!
+  login(loginInput: LoginInput!): LoginResult!
+  removeBreed(id: Int!): Breed!
+  removeCategory(id: Int!): Category!
+  removePet(id: Int!): Pet!
+  removeUser(id: String!): User!
+  signup(createUserInput: CreateUserInput!): User!
+  updateBreed(updateBreedInput: UpdateBreedInput!): Breed!
+  updateCategory(updateCategoryInput: UpdateCategoryInput!): Category!
+  updatePet(updatePetInput: UpdatePetInput!): Pet!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+}
+
+type Pet {
+  age: Int
+  breed: Breed!
+  breedId: String!
+  category: Category!
+  categoryId: String!
+  createdAt: String!
+  description: String!
+  id: String!
+  name: String!
+  owner: User!
+  ownerId: String!
+  photos: [String!]!
+  updatedAt: String!
+}
+
+type Query {
+  breed(id: Int!): Breed!
+  category(id: Int!): Category!
+  pet(id: Int!): Pet!
+  user(id: String!): User!
+  users: [User!]!
+}
+
+input UpdateBreedInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
+
+input UpdateCategoryInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
+
+input UpdatePetInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
+
+input UpdateUserInput {
+  city: String
+  email: String
+  fullName: String
+  id: String!
+  isActive: Boolean
+  isAdmin: Boolean
+  password: String
+  phone: String
+  username: String
+}
+
+type User {
+  city: String!
+  createdAt: String!
+  deletedAt: String
+  email: String!
+  fullName: String!
+  id: String!
+  isActive: Boolean!
+  isAdmin: Boolean!
+  password: String!
+  pets: [Pet!]!
+  phone: String!
+  updatedAt: String!
+  username: String!
+}

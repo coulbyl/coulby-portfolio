@@ -5,6 +5,7 @@
     "animals": "apps/animals",
     "animals-api": "apps/animals-api",
     "animals-e2e": "apps/animals-e2e",
+    "auth": "libs/auth",
     "primeng": "libs/primeng",
     "prisma": "libs/prisma",
     "statics-data": "libs/statics-data"
