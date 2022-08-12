@@ -10,15 +10,18 @@ export class Category {
   @Field(() => String)
   name: string
 
-  @Field(() => String)
-  createdAt: string
+  @Field(() => Date)
+  createdAt: Date
 
-  @Field(() => String)
+  @Field(() => Date)
   updatedAt: string
 
-  @Field(() => [Breed])
+  @Field(() => String, { nullable: true })
+  deletedAt: Date
+
+  @Field(() => [Breed], { defaultValue: [] })
   breeds: Breed[]
 
-  @Field(() => [Pet])
+  @Field(() => [Pet], { defaultValue: [] })
   pets: Pet[]
 }

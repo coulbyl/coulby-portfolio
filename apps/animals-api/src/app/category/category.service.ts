@@ -1,26 +1,50 @@
-import { Injectable } from '@nestjs/common';
-import { CreateCategoryInput } from './dto/create-category.input';
-import { UpdateCategoryInput } from './dto/update-category.input';
+import { Injectable, NotFoundException } from '@nestjs/common'
+import { handlePrismaError, PrismaService } from '@coulbyl/prisma'
+import { CreateCategoryInput } from './dto/create-category.input'
+import { UpdateCategoryInput } from './dto/update-category.input'
 
 @Injectable()
 export class CategoryService {
-  create(createCategoryInput: CreateCategoryInput) {
-    return 'This action adds a new category';
+  constructor(private prismaService: PrismaService) {}
+
+  async create(createCategoryInput: CreateCategoryInput) {
+    try {
+      return await this.prismaService.category.create({
+        data: createCategoryInput,
+        include: { pets: true, breeds: true },
+      })
+    } catch (error) {
+      handlePrismaError(error, { INTEGRITY: 'Category already exists' })
+    }
   }
 
   findAll() {
-    return `This action returns all category`;
+    return this.prismaService.category.findMany({
+      where: { deletedAt: null },
+      include: { pets: true, breeds: true },
+    })
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} category`;
+  async findOne(id: string) {
+    const category = await this.prismaService.category.findFirst({
+      where: { id, deletedAt: null },
+      include: { pets: true, breeds: true },
+    })
+    if (!category) throw new NotFoundException('Category not found')
+    return category
   }
 
-  update(id: number, updateCategoryInput: UpdateCategoryInput) {
-    return `This action updates a #${id} category`;
+  update({ id, ...updateCategoryInput }: UpdateCategoryInput) {
+    return this.prismaService.category.update({
+      where: { id },
+      data: updateCategoryInput,
+    })
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} category`;
+  remove(id: string) {
+    return this.prismaService.category.update({
+      where: { id },
+      data: { deletedAt: new Date() },
+    })
   }
 }

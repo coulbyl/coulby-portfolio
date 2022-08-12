@@ -2,13 +2,7 @@ import { Resolver, Query, Mutation, Args } from '@nestjs/graphql'
 import { UserService } from './user.service'
 import { CreateUserInput } from './dto/create-user.input'
 import { UpdateUserInput } from './dto/update-user.input'
-import {
-  AuthService,
-  LoginInput,
-  Public,
-  LoginResult,
-  CurrentUser,
-} from '@coulbyl/auth'
+import { AuthService, LoginInput, Public, LoginResult } from '@coulbyl/auth'
 import { User } from './entities/user.entity'
 
 @Resolver(() => User)
@@ -21,7 +15,7 @@ export class UserResolver {
   @Public()
   @Mutation(() => LoginResult)
   async login(@Args('loginInput') loginInput: LoginInput) {
-    let user = await this.userService.findOneByEmail(loginInput.email)
+    let user = await this.userService.findOneBy({ email: loginInput.email })
     user = await this.authService.validateUser(user, loginInput.password)
     return this.authService.login(user)
   }
@@ -40,7 +34,7 @@ export class UserResolver {
 
   @Query(() => User, { name: 'user' })
   findOne(@Args('id') id: string) {
-    return this.userService.findOneById(id)
+    return this.userService.findOneBy({ id })
   }
 
   @Mutation(() => User)

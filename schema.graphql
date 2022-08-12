@@ -14,11 +14,12 @@ type Breed {
 
 type Category {
   breeds: [Breed!]!
-  createdAt: String!
+  createdAt: DateTime!
+  deletedAt: String
   id: String!
   name: String!
   pets: [Pet!]!
-  updatedAt: String!
+  updatedAt: DateTime!
 }
 
 input CreateBreedInput {
@@ -27,8 +28,7 @@ input CreateBreedInput {
 }
 
 input CreateCategoryInput {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  name: String!
 }
 
 input CreatePetInput {
@@ -45,6 +45,11 @@ input CreateUserInput {
   username: String!
 }
 
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
 input LoginInput {
   email: String!
   password: String!
@@ -55,12 +60,12 @@ type LoginResult {
 }
 
 type Mutation {
+  create(createCategoryInput: CreateCategoryInput!): Category!
   createBreed(createBreedInput: CreateBreedInput!): Breed!
-  createCategory(createCategoryInput: CreateCategoryInput!): Category!
   createPet(createPetInput: CreatePetInput!): Pet!
   login(loginInput: LoginInput!): LoginResult!
   removeBreed(id: Int!): Breed!
-  removeCategory(id: Int!): Category!
+  removeCategory(id: String!): Category!
   removePet(id: Int!): Pet!
   removeUser(id: String!): User!
   signup(createUserInput: CreateUserInput!): User!
@@ -88,7 +93,8 @@ type Pet {
 
 type Query {
   breed(id: Int!): Breed!
-  category(id: Int!): Category!
+  categories: [Category!]!
+  category(id: String!): Category!
   pet(id: Int!): Pet!
   user(id: String!): User!
   users: [User!]!
@@ -101,9 +107,8 @@ input UpdateBreedInput {
 }
 
 input UpdateCategoryInput {
-  """Example field (placeholder)"""
-  exampleField: Int
-  id: Int!
+  id: String!
+  name: String
 }
 
 input UpdatePetInput {

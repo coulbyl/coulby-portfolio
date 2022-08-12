@@ -1,13 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import {
-  BadRequestException,
-  Injectable,
-  InternalServerErrorException,
-} from '@nestjs/common'
+import { Injectable } from '@nestjs/common'
 import { CreateUserInput } from './dto/create-user.input'
 import { UpdateUserInput } from './dto/update-user.input'
-import { PrismaService } from '@coulbyl/prisma'
-import { Prisma, PrismaPromise } from '@prisma/client'
+import { PrismaService, handlePrismaError } from '@coulbyl/prisma'
+import { PrismaPromise } from '@prisma/client'
+
+type FindOneKey = { [key in 'id' | 'email']?: string }
 
 @Injectable()
 export class UserService {
@@ -20,15 +18,7 @@ export class UserService {
         include: { pets: true },
       })
     } catch (error) {
-      if (error instanceof Prisma.PrismaClientKnownRequestError)
-        this.throwIntegrityException(error.code)
-      throw new InternalServerErrorException(error)
-    }
-  }
-
-  private throwIntegrityException(code: string) {
-    if (code === 'P2002') {
-      throw new BadRequestException('Email or Username already in use')
+      handlePrismaError(error, { INTEGRITY: 'User already exists' })
     }
   }
 
@@ -36,16 +26,9 @@ export class UserService {
     return this.prismaService.user.findMany()
   }
 
-  findOneById(id: string) {
+  findOneBy(criteria: FindOneKey) {
     return this.prismaService.user.findUniqueOrThrow({
-      where: { id },
-      include: { pets: true },
-    })
-  }
-
-  findOneByEmail(email: string) {
-    return this.prismaService.user.findUniqueOrThrow({
-      where: { email },
+      where: criteria,
       include: { pets: true },
     })
   }
@@ -58,7 +41,7 @@ export class UserService {
   }
 
   async remove(id: string) {
-    const user = await this.findOneById(id)
+    const user = await this.findOneBy({ id })
     const transactions: PrismaPromise<any>[] = [this.deleteUser(id)]
     if (user.pets.length) transactions.push(this.deletePets(id))
     return this.prismaService.$transaction(transactions)
