@@ -65,7 +65,7 @@ type Mutation {
   createPet(createPetInput: CreatePetInput!): Pet!
   login(loginInput: LoginInput!): LoginResult!
   removeBreed(id: Int!): Breed!
-  removeCategory(id: String!): Category!
+  removeCategory(id: String!): ValidResponse!
   removePet(id: Int!): Pet!
   removeUser(id: String!): User!
   signup(createUserInput: CreateUserInput!): User!
@@ -143,4 +143,8 @@ type User {
   phone: String!
   updatedAt: String!
   username: String!
+}
+
+type ValidResponse {
+  message: String!
 }

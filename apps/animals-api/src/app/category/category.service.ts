@@ -41,10 +41,12 @@ export class CategoryService {
     })
   }
 
-  remove(id: string) {
-    return this.prismaService.category.update({
+  async remove(id: string) {
+    await this.findOne(id)
+    await this.prismaService.category.update({
       where: { id },
       data: { deletedAt: new Date() },
     })
+    return { message: 'Category removed' }
   }
 }

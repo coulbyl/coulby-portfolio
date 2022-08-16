@@ -3,6 +3,7 @@ import { CategoryService } from './category.service'
 import { Category } from './entities/category.entity'
 import { CreateCategoryInput } from './dto/create-category.input'
 import { UpdateCategoryInput } from './dto/update-category.input'
+import { ValidResponse } from '@coulbyl/statics-data'
 
 @Resolver(() => Category)
 export class CategoryResolver {
@@ -32,7 +33,7 @@ export class CategoryResolver {
     return this.categoryService.update(updateCategoryInput)
   }
 
-  @Mutation(() => Category)
+  @Mutation(() => ValidResponse)
   removeCategory(@Args('id') id: string) {
     return this.categoryService.remove(id)
   }
