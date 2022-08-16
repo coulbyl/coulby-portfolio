@@ -3,8 +3,8 @@
 # ------------------------------------------------------
 
 type Breed {
-  category: Category!
-  categoryId: String!
+  category: Category
+  categoryId: String
   createdAt: String!
   id: String!
   name: String!
@@ -23,8 +23,8 @@ type Category {
 }
 
 input CreateBreedInput {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  categoryId: String
+  name: String!
 }
 
 input CreateCategoryInput {
@@ -64,7 +64,7 @@ type Mutation {
   createBreed(createBreedInput: CreateBreedInput!): Breed!
   createPet(createPetInput: CreatePetInput!): Pet!
   login(loginInput: LoginInput!): LoginResult!
-  removeBreed(id: Int!): Breed!
+  removeBreed(id: String!): Breed!
   removeCategory(id: String!): ValidResponse!
   removePet(id: Int!): Pet!
   removeUser(id: String!): User!
@@ -92,7 +92,8 @@ type Pet {
 }
 
 type Query {
-  breed(id: Int!): Breed!
+  breed(id: String!): Breed!
+  breeds: [Breed!]!
   categories: [Category!]!
   category(id: String!): Category!
   pet(id: Int!): Pet!
@@ -101,9 +102,9 @@ type Query {
 }
 
 input UpdateBreedInput {
-  """Example field (placeholder)"""
-  exampleField: Int
-  id: Int!
+  categoryId: String
+  id: String!
+  name: String
 }
 
 input UpdateCategoryInput {

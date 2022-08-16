@@ -16,12 +16,12 @@ export class Breed {
   @Field(() => String)
   updatedAt: string
 
-  @Field(() => Category)
+  @Field(() => Category, { nullable: true })
   category?: Category
 
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
   categoryId?: string
 
-  @Field(() => [Pet])
+  @Field(() => [Pet], { defaultValue: [] })
   pets: Pet[]
 }

@@ -1,7 +1,14 @@
-import { InputType, Int, Field } from '@nestjs/graphql';
+import { InputType, Field } from '@nestjs/graphql'
+import { IsNotEmpty, IsOptional } from 'class-validator'
 
 @InputType()
 export class CreateBreedInput {
-  @Field(() => Int, { description: 'Example field (placeholder)' })
-  exampleField: number;
+  @Field(() => String)
+  @IsNotEmpty()
+  name: string
+
+  @Field(() => String, { nullable: true })
+  @IsOptional()
+  @IsNotEmpty()
+  categoryId?: string
 }
