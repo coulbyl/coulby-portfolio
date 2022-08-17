@@ -1,8 +1,17 @@
-import { CreatePetInput } from './create-pet.input';
-import { InputType, Field, Int, PartialType } from '@nestjs/graphql';
+import { CreatePetInput } from './create-pet.input'
+import { InputType, Field, PartialType } from '@nestjs/graphql'
+import { IsBoolean, IsNotEmpty, IsOptional } from 'class-validator'
+import { Type } from 'class-transformer'
 
 @InputType()
 export class UpdatePetInput extends PartialType(CreatePetInput) {
-  @Field(() => Int)
-  id: number;
+  @Field(() => String)
+  @IsNotEmpty()
+  id: string
+
+  @Field(() => Boolean, { nullable: true })
+  @IsOptional()
+  @IsBoolean()
+  @Type(() => Boolean)
+  isAvailable?: boolean
 }

@@ -49,7 +49,7 @@ model Breed {
 model Pet {
   id          String    @id @default(cuid())
   name        String
-  age         Int?
+  age         Float?
   description String
   photos      String[]
   category    Category? @relation(fields: [categoryId], references: [id])
@@ -58,6 +58,7 @@ model Pet {
   breedId     String?
   owner       User?     @relation(fields: [ownerId], references: [id])
   ownerId     String?
+  isAvailable Boolean   @default(true)
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
 }

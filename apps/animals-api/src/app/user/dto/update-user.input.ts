@@ -7,7 +7,10 @@ export class UpdateUserInput extends PartialType(CreateUserInput) {
   @Field(() => String)
   @IsNotEmpty()
   id: string
+}
 
+@InputType()
+export class UpdateUserAdminInput {
   @Field(() => Boolean, { nullable: true })
   @IsBoolean()
   isAdmin?: boolean
