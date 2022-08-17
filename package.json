@@ -29,6 +29,7 @@
     "@nestjs/platform-express": "^9.0.0",
     "@nrwl/angular": "14.5.1",
     "@prisma/client": "^4.2.1",
+    "apollo-angular": "^4.0.1",
     "apollo-server-express": "^3.10.0",
     "bcrypt": "^5.0.1",
     "class-transformer": "^0.5.1",
@@ -42,7 +43,8 @@
     "reflect-metadata": "^0.1.13",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "@apollo/client": "^3.0.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~14.1.0",

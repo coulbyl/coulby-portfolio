@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PetDetailsComponent } from './pet-details/pet-details.component';
 import { ViewAllPetsComponent } from './view-all-pets/view-all-pets.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { GraphQLModule } from './graphql.module';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     ReactiveFormsModule,
     PrimengModule,
+    GraphQLModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
