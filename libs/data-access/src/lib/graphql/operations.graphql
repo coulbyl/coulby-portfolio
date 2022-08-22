@@ -1,0 +1,8 @@
+query setList {
+  allSets {
+    id
+    name
+    numParts
+    year
+  }
+}

@@ -4,6 +4,7 @@
   "projects": {
     "animals": "apps/animals",
     "animals-e2e": "apps/animals-e2e",
+    "data-access": "libs/data-access",
     "primeng": "libs/primeng",
     "statics-data": "libs/statics-data"
   }
